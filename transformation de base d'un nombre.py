@@ -13,22 +13,35 @@ def convertisseur(nombreAconvertir,baseDuNombre,baseVoulu):
     """
     
     if baseDuNombre!=10:
-        décimal(nombreAconvertir,baseDuNombre)
+        nombreAconvertir=decimal(nombreAconvertir,baseDuNombre)
     
-    résultat=[]
+    resultat=[]
     nombre=nombreAconvertir
     
     while nombre!=0:
-        résultat.append(nombre%baseVoulu)
+        if nombre%baseVoulu>=10:
+            if nombre%baseVoulu==10:
+                resultat.append("a")
+            elif nombre%baseVoulu==11:
+                resultat.append("b")
+            elif nombre%baseVoulu==12:
+                resultat.append("c")
+            elif nombre%baseVoulu==13:
+                resultat.append("d")
+            elif nombre%baseVoulu==14:
+                resultat.append("e")
+            elif nombre%baseVoulu==15:
+                resultat.append("f")
+        else:
+            resultat.append(nombre%baseVoulu)
         nombre=nombre//baseVoulu
     
-    résultat.reverse()
-    réponse = ''.join(str(elem)for elem in résultat)#permet de transformer la liste en texte compact
+    resultat.reverse()
+    reponse = ''.join(str(elem)for elem in resultat)#permet de transformer la liste en texte compact
     
-    return print (" le nombre de base était", nombreAconvertir,"de base", baseDuNombre,
-                 ".Il est égal à ",réponse,"en base ", baseVoulu )
+    return "#"+reponse
 
-def décimal (nombreAconvertir,baseDuNombre):
+def decimal (nombreAconvertir,baseDuNombre):
     
     """
     ce programme permet de convertir un nombre de n'importe qu'elle base en base 10. 
@@ -49,17 +62,17 @@ def décimal (nombreAconvertir,baseDuNombre):
     
     if baseDuNombre>10:
         while compteur!=nombreCaractère:
-            if liste[x]=="A":
+            if liste[x].lower()=="a":
                 liste[x]=10
-            if liste[x]=="B":
+            if liste[x].lower()=="b":
                 liste[x]=11
-            if liste[x]=="C":
+            if liste[x].lower()=="c":
                 liste[x]=12
-            if liste[x]=="D":
+            if liste[x].lower()=="d":
                 liste[x]=13
-            if liste[x]=="E":
+            if liste[x].lower()=="e":
                 liste[x]=14
-            if liste[x]=="F":
+            if liste[x].lower()=="f":
                 liste[x]=15
             compteur=compteur+1
             x=x+1
@@ -71,5 +84,4 @@ def décimal (nombreAconvertir,baseDuNombre):
         compteur=compteur+1
         x=x+1
         puissance=puissance+1
-    return print( " le nombre de base était", nombreAconvertir,"de base", baseDuNombre,
-                 ".Il est égal à ",résultat,"en base 10")
+    return résultat
