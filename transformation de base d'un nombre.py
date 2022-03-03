@@ -64,15 +64,15 @@ def decimal (nombreAconvertir,baseDuNombre):
         while compteur!=nombreCaractère:
             if liste[x].lower()=="a":
                 liste[x]=10
-            if liste[x].lower()=="b":
+            elif liste[x].lower()=="b":
                 liste[x]=11
-            if liste[x].lower()=="c":
+            elif liste[x].lower()=="c":
                 liste[x]=12
-            if liste[x].lower()=="d":
+            elif liste[x].lower()=="d":
                 liste[x]=13
-            if liste[x].lower()=="e":
+            elif liste[x].lower()=="e":
                 liste[x]=14
-            if liste[x].lower()=="f":
+            elif liste[x].lower()=="f":
                 liste[x]=15
             compteur=compteur+1
             x=x+1
