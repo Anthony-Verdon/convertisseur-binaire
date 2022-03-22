@@ -72,7 +72,7 @@ def decimal (nombreAconvertir,baseDuNombre):
                 liste[x]=13
             elif liste[x].lower()=="e":
                 liste[x]=14
-            elif liste[x].lower()=="f":
+            elif str(liste[x]).lower()=="f":
                 liste[x]=15
             compteur=compteur+1
             x=x+1
@@ -85,3 +85,17 @@ def decimal (nombreAconvertir,baseDuNombre):
         x=x+1
         puissance=puissance+1
     return résultat
+
+start=decimal("00ffff",16)
+while start>decimal("0000ff",16):
+    start-=256
+print(start)
+while start<decimal("ff00ff",16):
+    start+=65536
+print(start)
+while start>decimal("ff0000",16):
+    start-=15
+print(start)
+while start<decimal("ffff00",16):
+    start+=256
+print(start)
